@@ -5,32 +5,35 @@
 *
 *@array: The input array to be sorted
 *@size: The size of of our input arra
+#include "sort.h"
+#include <stdio.h>
+
 */
+
 void bubble_sort(int *array, size_t size)
 {
-	size_t i, newsize = size;
-	int tmp, swap;
+size_t i = 0, j, flagging, e_mp;
 
-	if (array == NULL || size < 2)
-		return;
+if (array == NULL || size == 0)
+return;
 
-	while (newsize)
-	{
-		swap = 0;
-		for (i = 0; i < newsize - 1; i++)
-		{
-			if (array[i] > array[i + 1])
-			{
-				tmp = array[i + 1];
-				array[i + 1] = array[i];
-				array[i] = tmp;
-				print_array(array, size);
-				swap = 1;
-			}
-		}
-		newsize--;
-		if (!swap)
-			break;
-	}
+do {
+flagging = 0;
+j = 0;
+
+do {
+if (array[j] > array[j + 1])
+{
+e_mp = array[j];
+array[j] = array[j + 1];
+array[j + 1] = e_mp;
+flagging = 1;
+print_array(array, size);
 }
+j++;
+} while (j < size - i - 1);
 
+i++;
+
+} while (flagging);
+}
